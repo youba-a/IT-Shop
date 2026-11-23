@@ -1,0 +1,444 @@
+    @import url('https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+    /* 1. Variables de base - Palette cohérente */
+    :root {
+        --color-primary: #36AEB3;
+        --color-primary-dark: #2a8e91;
+        --color-primary-light: #AECBD6;
+
+        --color-white: #FFFFFF;
+        --color-off-white: #f9f9f9;
+        --color-light-gray: #E0E0E0;
+        --color-medium-gray: #CCCCCC;
+        --color-dark-gray: #727272;
+        --color-black: #000000;
+        --color-text: #333333;
+
+        --color-accent: #2E4748;
+        --color-star: #FFD700;
+
+        --color-shadow: rgba(0, 0, 0, 0.12);
+        --color-overlay: rgba(46, 71, 72, 0.15);
+        --color-border-transparent: rgba(54, 174, 179, 0.25);
+    }
+
+
+    /* 2. Réglages de base */
+    html, body {
+        height: 100%;
+        scroll-behavior: smooth;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--color-text);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow: auto;
+        background-color: var(--color-off-white); /* Blanc cassé */
+    }
+
+    body {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    /* 3. Conteneur principal */
+    .container {
+        margin: 0 auto;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    /* 4. Header */
+    .header-banner       {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    header {
+        background-color: var(--color-white);
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--color-medium-gray);
+        box-shadow: 0 2px 5px var(--color-shadow);
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .hero {
+        position: relative;
+        padding: 100px 0;
+        color: white;
+        overflow: hidden;
+    }
+
+    .hero .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* L'image passe en arrière-plan */
+    .hero .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        filter: brightness(40%);
+        pointer-events: none;
+    }
+
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .logo img {
+        height: 50px;
+        display: block;
+    }
+
+    /* 5. Navigation */
+    nav.main-navigation ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 30px;
+    }
+
+    nav.main-navigation ul li a {
+        color: var(--color-black);
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+        padding: 8px 0;
+        transition: color 0.3s ease;
+    }
+
+    nav.main-navigation ul li a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        background-color: var(--color-primary);
+        transition: width 0.3s ease;
+    }
+
+    nav.main-navigation ul li a:hover::after,
+    nav.main-navigation ul li a.active::after {
+        width: 100%;
+    }
+
+    nav.main-navigation ul li a:hover {
+        color: var(--color-primary);
+    }
+
+    /* 6. Contenu principal */
+    main {
+        background-color: var(--color-off-white); /* Blanc cassé */
+        flex-grow: 1;
+    }
+
+    /* Hero Section */
+    .hero {
+    color: var(--color-white);
+    padding: 6rem 0;
+    text-align: center;
+    }
+
+    .hero .container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 2px solid var(--color-white); /* Bordure blanche fine */
+    border-radius: 0.5rem;
+    background-color: transparent; /* Pas de fond */
+    color: var(--color-light-gray);
+    }
+
+
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero .lead-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+
+    /* Texte encadré dans les sections */
+    .section-lead-box {
+        font-size: 1.1rem;
+        max-width: 100%;
+        margin: 1.5rem auto 2rem auto;
+        padding: 1.5rem;
+        color: var(--color-black);
+        border: 2px solid var(--color-primary);
+        background-color: var(--color-off-white);
+        text-align: center;
+        border-radius: 0.3rem; /*  pour arrondir un peu les angles */
+    }
+
+    /* Cadre regroupant les cartes produits */
+    /* Conteneur des produits */
+    .product-box-frame {
+        max-width: 100%;
+        margin: 2rem auto;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        background-color: var(--color-medium-gray);
+        border: 2px solid var(--color-primary); /* Cadre noir autour du conteneur */
+    }
+
+    /* Chaque carte produit */
+    .card {
+    background: linear-gradient(to right, rgba(54, 174, 179, 0.85), rgba(255, 255, 255, 0.9));
+        border: 2px solid var(--color-black); /* cadre noir */
+        border-radius: 0.5rem;
+        color: var(--color-black); /* texte noir */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Image de la carte */
+    .card-img-top {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 1px solid var(--color-black);
+        border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    /* Titre de la carte */
+    .card .card-title {
+        background-color: var(--color-overlay); /* léger fond transparent */
+        border-bottom: 1px solid var(--color-black);
+        padding: 10px 15px;
+        margin: 0;
+        font-weight: bold;
+        color: var(--color-black);
+        border-radius: 0 0 0.5rem 0.5rem;
+    }
+
+    /* Corps de la carte */
+    .card-body {
+        flex-grow: 1;
+        padding: 1rem;
+        color: var(--color-black);
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Pour que les boutons restent en bas si tu en as */
+    .card-body .mt-auto {
+        margin-top: auto;
+    }
+
+
+    /* Boutons */
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        border-radius: 0.3rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-primary-dark);
+        transform: translateY(-2px);
+        color: var(--color-white);
+    }
+
+    .btn-outline-primary {
+        color: var(--color-primary);
+        border: 1px solid var(--color-primary);
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+
+/* ====================== */
+    /* Footer */
+/* ====================== */
+footer {
+    background: linear-gradient(to right, var(--color-primary-dark), var(--color-primary));
+    color: var(--color-white);
+    padding: 3rem 0 1rem 0;
+    font-family: 'Montserrat', sans-serif;
+}
+footer .row {
+  max-width: 100%;
+  margin-left: 5%;
+  margin-right: auto;
+  justify-content: center;
+
+  display: flex;
+  gap: 15%;
+}
+footer .row > div {
+  flex: 0 1 auto;
+}
+
+footer h5 {
+    color: var(--color-white);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Texte dans li et liens dans footer en noir */
+footer p,
+footer li,
+footer li a {
+    font-size: 0.95rem;
+    color: var(--color-black) !important;  /* Forcer la couleur noire */
+    text-decoration: none;
+}
+
+/* Hover sur liens dans footer */
+footer li a:hover {
+    color: var(--color-star);
+    text-decoration: underline;
+}
+
+
+/* Espace entre les li */
+footer .list-unstyled li {
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+}
+
+/* Icônes en jaune */
+footer i {
+    margin-right: 0.6rem;
+    color: var(--color-star);
+}
+
+footer hr {
+    border-color: var(--color-light-gray);
+    opacity: 0.2;
+}
+
+footer .social-links a {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: var(--color-light-gray);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: var(--color-star);
+    transform: scale(1.1);
+}
+
+footer .text-center a {
+    color: var(--color-light-gray);
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+footer .text-center a:hover {
+    color: var(--color-star);
+    text-decoration: underline;
+}
+
+/* Responsive footer spacing */
+@media (max-width: 768px) {
+    footer .row > div {
+        text-align: center;
+    }
+
+    footer .social-links {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+
+    /* Responsive */
+    .menu-toggle-button {
+        display: none;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--color-black);
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+    }
+
+    @media (max-width: 768px) {
+        .menu-toggle-button {
+            display: flex;
+        }
+
+        nav.main-navigation {
+            display: none;
+            position: absolute;
+            top: 56px;
+            right: 0;
+            background: var(--color-white);
+            width: 200px;
+            border: 1px solid var(--color-medium-gray);
+            padding: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            z-index: 999;
+            flex-direction: column;
+        }
+
+        nav.main-navigation.active {
+            display: flex;
+        }
+
+        nav.main-navigation ul {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        nav.main-navigation ul li {
+            margin-bottom: 1rem;
+        }
+
+        nav.main-navigation ul li a {
+            font-weight: 600;
+            color: var(--color-black);
+        }
+    }

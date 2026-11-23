@@ -1,0 +1,13 @@
+/vendor/
+/config.local.php
+/.env*
+/img/prod_*
+/vue mailtrip.png
+*.tmp
+*.log
+/.idea/
+/.vscode/
+Thumbs.db
+.DS_Store
+/img/annn.jpg
+/img/background.jpg
